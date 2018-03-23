@@ -12,3 +12,6 @@ Käyttäjän rekisteröityminen
 Ylläpitäjän ja käyttäjän kirjautuminen
 Pokemonin lisääminen omiin pokemoneihin
 Omien pokemonien tietojen muuttaminen
+
+[Heroku linkki](https://pogowiki.herokuapp.com/ "pogowiki")
+
