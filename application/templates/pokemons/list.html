@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Pokemon</th>
+      <th>Caught</th>
+      <th></th>
+    </tr>
+    {% for pokemon in pokemons %}
+    <tr>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.done }}</td>
+      <td>
+	<form method="POST" action="{{ url_for('pokemons_set_done', pokemon_id=pokemon.id) }}">
+	  <input type="submit" value="Change status!"/>
+	</form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
