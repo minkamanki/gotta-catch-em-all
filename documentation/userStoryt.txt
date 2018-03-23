@@ -1,0 +1,20 @@
+Nykyiset:
+PokemonWikissä kävijä voi lisätä pokemoneita.
+
+Kävijä voi merkitä lisättyihin pokemoneihin omistaako sen vielä.
+
+
+Tulevat:
+Vain admin voi lisätä uusia pokemoneja tietokantaan.
+
+Kävijä voi lisätä henkilökohtaisesti, jonkin pokemonin itselleen.
+
+Kävijä voi poistaa pokemonin itseltään.
+
+Pokemonilla yleisiä tietoja. (numero, elementit jne.)
+
+Kävijä voi syöttää pokemonille yksilökohtaisia tietoja (esim. IV:n laskemista varten).
+
+
+
+
