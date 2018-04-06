@@ -2,7 +2,7 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.pokemons.models import pokemon
 from application.pokemons.forms import PokemonForm
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 @app.route("/pokemons", methods=["GET"])
 def pokemons_index():
@@ -36,6 +36,7 @@ def pokemons_create():
     t.cp = form.cp.data
     t.hp = form.hp.data
     t.dust = form.dust.data
+    t.account_id = current_user.id
 
     db.session().add(t)
     db.session().commit()

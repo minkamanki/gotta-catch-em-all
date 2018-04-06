@@ -14,6 +14,9 @@ class User(db.Model):
     password = db.Column(db.String(144), nullable=False)
     lvl = db.Column(db.Integer, nullable=False)
 
+    pokemons = db.relationship("pokemon", backref='account', lazy=True)
+  
+
     def __init__(self, name, username, password):
         self.name = name
         self.username = username
