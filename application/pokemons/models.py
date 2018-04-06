@@ -7,8 +7,12 @@ class pokemon(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
-    done = db.Column(db.Boolean, nullable=False)
+    powerupped = db.Column(db.Boolean, nullable=False)
+    cp = db.Column(db.Integer, nullable=False)
+    hp = db.Column(db.Integer, nullable=False)
+    dust = db.Column(db.Integer, nullable=False)
+
 
     def __init__(self, name):
         self.name = name
-        self.done = False
+        self.powerupped = False

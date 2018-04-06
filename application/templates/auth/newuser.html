@@ -49,6 +49,21 @@
         </td>
     </tr>
     <tr>
+    	<td>
+            {{ form.lvl.label }}
+        </td>
+        <td>
+            {{ form.lvl }}
+        </td>
+        <td>
+            <ul>
+                {% for error in form.lvl.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
         <td colspan="3">
             <input type="submit" value="Create account"/>
         </td>

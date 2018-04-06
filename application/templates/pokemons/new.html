@@ -19,11 +19,63 @@
         </td>
     </tr>
     <tr>
-    	<td>
-        {{ form.done.label }}
+      <td>
+        {{ form.cp.label }}
       </td>
       <td>
-        {{ form.done }}
+        {{ form.cp }}
+      </td>
+      <td>
+          <ul>
+            {% for error in form.cp.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        {{ form.hp.label }}
+      </td>
+      <td>
+        {{ form.hp }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.hp.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+    	<td>
+        {{ form.dust.label }}
+      </td> 
+      <td>
+        {{ form.dust }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.dust.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+    	<td>
+        {{ form.powerupped.label }}
+      </td>
+      <td>
+        {{ form.powerupped }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.powerupped.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
       </td>
     </tr>
     <tr>

@@ -4,15 +4,19 @@
   <table>
     <tr>
       <th>Pokemon</th>
-      <th>Caught</th>
+      <th>CP</th>
+      <th>HP</th>
+      <th>Powerupped</th>
       <th></th>
     </tr>
     {% for pokemon in pokemons %}
     <tr>
       <td>{{ pokemon.name }}</td>
-      <td>{{ pokemon.done }}</td>
+      <td>{{ pokemon.cp }}</td>
+      <td>{{ pokemon.hp }}</td>
+      <td>{{ pokemon.powerupped }}</td>
       <td>
-	<form method="POST" action="{{ url_for('pokemons_set_done', pokemon_id=pokemon.id) }}">
+	<form method="POST" action="{{ url_for('pokemons_set_powerupped', pokemon_id=pokemon.id) }}">
 	  <input type="submit" value="Change status!"/>
 	</form>
       </td>

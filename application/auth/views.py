@@ -39,6 +39,7 @@ def users_create():
         return render_template("auth/newuser.html", form = form)
 
     t = User(form.name.data, form.username.data, form.password.data)
+    t.lvl = form.lvl.data
   
     db.session().add(t)
     db.session().commit() 
