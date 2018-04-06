@@ -10,8 +10,8 @@
       <th></th>
     </tr>
     {% for pokemon in pokemons %}
-    <tr>
-      <td>{{ pokemon.name }}</td>
+    <tr>    
+      <td><a href="{{ url_for('pokemons_pokemon', pokemon_id=pokemon.id) }}"> {{ pokemon.name }}</a> </td>
       <td>{{ pokemon.cp }}</td>
       <td>{{ pokemon.hp }}</td>
       <td>{{ pokemon.powerupped }}</td>

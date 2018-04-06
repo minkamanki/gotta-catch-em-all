@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Pokemon</th>
+        <td>{{ pokemon.name }}</td>
+    </tr>
+    <tr>
+        <th>CP</th>
+        <td>{{ pokemon.cp }}</td> 
+    </tr>
+    <tr>
+        <th>HP</th>
+        <td>{{ pokemon.hp }}</td>
+    </tr>
+    <tr>
+        <th>Stardust</th>
+        <td>{{ pokemon.dust }}</td>
+    </tr>
+    
+    <tr>
+        <th>Powerupped</th>
+        <td>{{ pokemon.powerupped }}</td>   
+    </tr>
+</table>
+<h1>Edit:</h1>
+<form method="POST" action="{{ url_for('pokemons_edit', pokemon_id=pokemon.id) }}">
+        <table>
+          <tr>
+            <td>
+              {{ form.name.label }}
+            </td>
+            <td>
+              {{ form.name(value=pokemon.name) }}
+            </td>
+            <td>
+                <ul>
+                  {% for error in form.name.errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              {{ form.cp.label }}
+            </td>
+            <td>
+              {{ form.cp(value=pokemon.cp) }}
+            </td>
+            <td>
+                <ul>
+                  {% for error in form.cp.errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+          </tr>
+          <tr>
+              <td>
+              {{ form.hp.label }}
+            </td>
+            <td>
+              {{ form.hp(value=pokemon.hp) }}
+            </td>
+            <td>
+              <ul>
+                {% for error in form.hp.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+              <td>
+              {{ form.dust.label }}
+            </td> 
+            <td>
+              {{ form.dust(value=pokemon.dust) }}
+            </td>
+            <td>
+              <ul>
+                {% for error in form.dust.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+              <td>
+              {{ form.powerupped.label }}
+            </td>
+            <td>
+              {{ form.powerupped }}
+            </td>
+            <td>
+              <ul>
+                {% for error in form.powerupped.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <input type="submit" value="Edit pokemon"/>
+            </td>
+          </tr>
+      </form>
+
+{% endblock %}

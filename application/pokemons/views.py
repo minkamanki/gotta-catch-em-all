@@ -42,3 +42,31 @@ def pokemons_create():
     db.session().commit()
   
     return redirect(url_for("pokemons_index"))
+
+@app.route("/pokemons/<pokemon_id>/", methods=["GET"])
+def pokemons_pokemon(pokemon_id):
+    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm())
+
+@app.route("/pokemons/<pokemon_id>/edit/", methods=["POST"])
+@login_required
+def pokemons_edit(pokemon_id):
+    form = PokemonForm(request.form)
+    print(request.form)
+    print('hi')
+    print('hi')
+    print('hi')
+    print('hi')
+
+    if not form.validate():
+        return render_template("pokemons/pokemon.html", form = form)
+
+    t = pokemon.query.get(pokemon_id)
+    t.name = form.name.data
+    t.powerupped = form.powerupped.data
+    t.cp = form.cp.data
+    t.hp = form.hp.data
+    t.dust = form.dust.data
+
+    db.session().commit()
+  
+    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm())
