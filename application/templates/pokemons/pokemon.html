@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+
 <table>
     <tr>
         <th>Pokemon</th>
@@ -24,6 +25,11 @@
         <td>{{ pokemon.powerupped }}</td>   
     </tr>
 </table>
+
+<form method="POST" action="{{ url_for('pokemons_delete', pokemon_id=pokemon.id) }}">
+    <input type="submit" value="Delete!"/>
+</form>
+
 <h1>Edit:</h1>
 <form method="POST" action="{{ url_for('pokemons_edit', pokemon_id=pokemon.id) }}">
         <table>
