@@ -13,22 +13,24 @@
               <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
+        {% if current_user.is_authenticated %}
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <li><a href="{{ url_for('pokemons_index') }}">List your pokemons</a></li>
-            </li>
-            <li class="nav-item">
-            <li><a href="{{ url_for('pokemons_form') }}">Add new pokemon</a></li>
+            <li><a href="{{ url_for('pokemons_index') }}">List your pokemons</a> </li>
+          </li>
+          <li class="nav-item">
+            <li><a href="{{ url_for('pokemons_form') }}">Add new pokemon</a> </li>
           </li>
         </ul>
-          <div class="form-inline mt-2 mt-md-0">
-            {% if current_user.is_authenticated %} 
-              <a href="{{ url_for('auth_logout') }}">Log out</a>
-            {% else %}
-              <a href="{{ url_for('auth_login') }}">Login</a>
-              <a href="{{ url_for('users_form') }}">Sign in</a>
-            {% endif %}
-          </div>
+        {% endif %}
+        <div class="form-inline mt-2 mt-md-0">
+          {% if current_user.is_authenticated %} 
+          <a href="{{ url_for('auth_logout') }}">Log out</a>
+          {% else %}
+          <a href="{{ url_for('auth_login') }}"> Login</a>
+          <a href="{{ url_for('users_form') }}"> Sign in </a>
+          {% endif %}
+        </div>
       </div>
     </nav>
 

@@ -2,7 +2,7 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.pokemons.models import pokemon
 from application.pokemons.forms import PokemonForm
-from flask_login import login_required, current_user
+from flask_login import current_user
 from application.auth.models import User
 
 @app.route("/pokemons", methods=["GET"])
