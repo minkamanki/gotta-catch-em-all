@@ -9,16 +9,16 @@
       {% if current_user.is_authenticated %}
       <p>
           Hello,  {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Log out</a>
+            
+        <ul>
+          <li><a href="{{ url_for('pokemons_index') }}">List your pokemons</a></li>
+          <li><a href="{{ url_for('pokemons_form') }}">Add new pokemon</a></li>
+        </ul>
       </p>
       {% else %}
       <a href="{{ url_for('auth_login') }}">Login</a>
       <a href="{{ url_for('users_form') }}">Sign in</a>
       {% endif %}
-      
-    <ul>
-      <li><a href="{{ url_for('pokemons_index') }}">List your pokemons</a></li>
-      <li><a href="{{ url_for('pokemons_form') }}">Add new pokemon</a></li>
-    </ul>
     
     {% block body %}
     <p>

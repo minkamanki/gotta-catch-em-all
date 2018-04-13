@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+{% if pokemons %}
   <table>
     <tr>
       <th>Pokemon</th>
@@ -10,17 +11,22 @@
       <th></th>
     </tr>
     {% for pokemon in pokemons %}
+    {% if pokemon.id %}
     <tr>    
       <td><a href="{{ url_for('pokemons_pokemon', pokemon_id=pokemon.id) }}"> {{ pokemon.name }}</a> </td>
       <td>{{ pokemon.cp }}</td>
       <td>{{ pokemon.hp }}</td>
       <td>{{ pokemon.powerupped }}</td>
       <td>
-	<form method="POST" action="{{ url_for('pokemons_set_powerupped', pokemon_id=pokemon.id) }}">
-	  <input type="submit" value="Change status!"/>
-	</form>
+	    <form method="POST" action="{{ url_for('pokemons_set_powerupped', pokemon_id=pokemon.id) }}">
+	      <input type="submit" value="Change status!"/>
+	    </form>
       </td>
     </tr>
+    {% endif %}
     {% endfor %}
   </table>
+{% else %}
+  <p>You don't have any pokemons!</p>
+{% endif %}
 {% endblock %}
