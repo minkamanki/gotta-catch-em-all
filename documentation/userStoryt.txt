@@ -1,20 +1,12 @@
 Nykyiset:
-PokemonWikiss‰ k‰vij‰ voi lis‰t‰ pokemoneita.
+PokemonWikiss√§ k√§vij√§ voi lis√§t√§ itselleen pokemoneita.
+Pokemoneille voi merkit√§ tietoja iv laskuja varten.
+Oman pokemonin voi poistaa ja sen tietoja voi muokata.
 
-K‰vij‰ voi merkit‰ lis‰ttyihin pokemoneihin omistaako sen viel‰.
+Tietokantaan voi lis√§t√§ pokemonin (tulevaisuudessa vain admin lis√§√§ uusia), joilla on yleist√§ infoa pokemoneista
 
 
 Tulevat:
-Vain admin voi lis‰t‰ uusia pokemoneja tietokantaan.
-
-K‰vij‰ voi lis‰t‰ henkilˆkohtaisesti, jonkin pokemonin itselleen.
-
-K‰vij‰ voi poistaa pokemonin itselt‰‰n.
-
-Pokemonilla yleisi‰ tietoja. (numero, elementit jne.)
-
-K‰vij‰ voi syˆtt‰‰ pokemonille yksilˆkohtaisia tietoja (esim. IV:n laskemista varten).
-
-
-
-
+Vain admin voi lis√§t√§ uusia pokemoneja joista k√§ytt√§j√§ luo omia ilmentymi√§√§n.
+K√§ytt√§jien pokemonit kuuluu aina johonki adminin lis√§√§m√§√§n pokemoniin, mutta niill√§ on omat henkil√∂kohtaiset tiedot.
+Iv:n laskeminen pokemon ilmentymille
