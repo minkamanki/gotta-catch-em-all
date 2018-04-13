@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('pokemons_create') }}">
+<form method="POST" action="{{ url_for('pokedata_add') }}">
   <table>
     <tr>
       <td>
@@ -20,14 +20,14 @@
     </tr>
     <tr>
       <td>
-        {{ form.cp.label }}
+        {{ form.types.label }}
       </td>
       <td>
-        {{ form.cp }}
+        {{ form.types }}
       </td>
       <td>
           <ul>
-            {% for error in form.cp.errors %}
+            {% for error in form.types.errors %}
             <li>{{ error }}</li>
             {% endfor %}
           </ul>
@@ -35,14 +35,14 @@
     </tr>
     <tr>
     	<td>
-        {{ form.hp.label }}
+        {{ form.number.label }}
       </td>
       <td>
-        {{ form.hp }}
+        {{ form.number }}
       </td>
       <td>
         <ul>
-          {% for error in form.hp.errors %}
+          {% for error in form.number.errors %}
           <li>{{ error }}</li>
           {% endfor %}
         </ul>
@@ -50,49 +50,19 @@
     </tr>
     <tr>
     	<td>
-        {{ form.dust.label }}
+        {{ form.info.label }}
       </td> 
       <td>
-        {{ form.dust }}
+        {{ form.info }}
       </td>
       <td>
         <ul>
-          {% for error in form.dust.errors %}
+          {% for error in form.info.errors %}
           <li>{{ error }}</li>
           {% endfor %}
         </ul>
       </td>
     </tr>
-    <tr>
-    	<td>
-        {{ form.powerupped.label }}
-      </td>
-      <td>
-        {{ form.powerupped }}
-      </td>
-      <td>
-        <ul>
-          {% for error in form.powerupped.errors %}
-          <li>{{ error }}</li>
-          {% endfor %}
-        </ul>
-      </td>
-    </tr>
-    <tr>
-        <td>
-          Valitse
-        </td>
-        <td>
-          {{ form.pokedata }}
-        </td>
-        <td>
-          <ul>
-            {% for error in form.pokedata.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-        </td>
-      </tr>
     <tr>
       <td colspan="3">
         <input type="submit" value="Add a new pokemon"/>

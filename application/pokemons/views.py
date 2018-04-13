@@ -4,6 +4,7 @@ from application.pokemons.models import pokemon
 from application.pokemons.forms import PokemonForm
 from flask_login import current_user
 from application.auth.models import User
+from application.pokedatas.models import pokedata
 
 @app.route("/pokemons", methods=["GET"])
 def pokemons_index():
@@ -25,7 +26,7 @@ def pokemons_set_powerupped(pokemon_id):
 @app.route("/pokemons/", methods=["POST"])
 def pokemons_create():
     form = PokemonForm(request.form)
-
+    
     if not form.validate():
         return render_template("pokemons/new.html", form = form)
 
