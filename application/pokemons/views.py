@@ -43,7 +43,7 @@ def pokemons_create():
 
 @app.route("/pokemons/<pokemon_id>/", methods=["GET"])
 def pokemons_pokemon(pokemon_id):
-    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm())
+    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm(), current_user=current_user)
 
 @app.route("/pokemons/<pokemon_id>/edit/", methods=["POST"])
 def pokemons_edit(pokemon_id):
