@@ -27,7 +27,7 @@ from application.pokedatas import views
 # login
 from application.auth.models import User
 from os import urandom
-app.config["SECRET_KEY"] = urandom(32)
+app.config["SECRET_KEY"] = "secret"
 
 from flask_login import LoginManager
 login_manager = LoginManager()
