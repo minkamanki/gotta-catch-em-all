@@ -5,12 +5,15 @@ from application.pokemons.forms import PokemonForm
 from flask_login import current_user
 from application.auth.models import User
 from application.pokedatas.models import pokedata
+from flask_login import login_required
 
 @app.route("/pokemons", methods=["GET"])
+@login_required
 def pokemons_index():
     return render_template("pokemons/list.html", pokemons = User.find_pokemons_for_user(current_user.id))
 
 @app.route("/pokemons/new/")
+@login_required
 def pokemons_form():
     return render_template("pokemons/new.html", form = PokemonForm())
   
@@ -43,6 +46,7 @@ def pokemons_create():
     return redirect(url_for("pokemons_index"))
 
 @app.route("/pokemons/<pokemon_id>/", methods=["GET"])
+@login_required
 def pokemons_pokemon(pokemon_id):
     return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm(), current_user=current_user)
 
