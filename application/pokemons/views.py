@@ -1,4 +1,4 @@
-from application import app, db
+from application import app, login_manager, db
 from flask import redirect, render_template, request, url_for
 from application.pokemons.models import pokemon
 from application.pokemons.forms import PokemonForm
@@ -15,7 +15,9 @@ def pokemons_index():
 @app.route("/pokemons/new/")
 @login_required
 def pokemons_form():
-    return render_template("pokemons/new.html", form = PokemonForm())
+    form = PokemonForm()
+    form.pokedata_id.choices = [(g.id, g.name) for g in pokedata.query.order_by('name')]
+    return render_template("pokemons/new.html", form = form)
   
 @app.route("/pokemons/<pokemon_id>/", methods=["POST"])
 def pokemons_set_powerupped(pokemon_id):
@@ -38,7 +40,8 @@ def pokemons_create():
     t.cp = form.cp.data
     t.hp = form.hp.data
     t.dust = form.dust.data
-    t.account_id = current_user.id
+    t.account_id = current_user.id    
+    t.pokedata_id = 1
 
     db.session().add(t)
     db.session().commit()

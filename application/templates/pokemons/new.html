@@ -1,8 +1,20 @@
-{% extends "layout.html" %}
-  
-{% block body %}
+{% extends "layout.html" %} {% block body %}
 <form method="POST" action="{{ url_for('pokemons_create') }}">
   <table>
+    <tr>
+      <td>
+        Choose:</td>
+      <td>
+        {{ form.pokedata_id }} </td>
+
+      <td>
+
+        <ul>
+          {% for error in form.pokedata_id.errors %}
+          <li>{{ error }}</li>
+          {% endfor %} </ul>
+      </td>
+    </tr>
     <tr>
       <td>
         {{ form.name.label }}
@@ -11,12 +23,12 @@
         {{ form.name }}
       </td>
       <td>
-          <ul>
-            {% for error in form.name.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-        </td>
+        <ul>
+          {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>
@@ -26,15 +38,15 @@
         {{ form.cp }}
       </td>
       <td>
-          <ul>
-            {% for error in form.cp.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-          </ul>
-        </td>
+        <ul>
+          {% for error in form.cp.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
     </tr>
     <tr>
-    	<td>
+      <td>
         {{ form.hp.label }}
       </td>
       <td>
@@ -49,9 +61,9 @@
       </td>
     </tr>
     <tr>
-    	<td>
+      <td>
         {{ form.dust.label }}
-      </td> 
+      </td>
       <td>
         {{ form.dust }}
       </td>
@@ -64,7 +76,7 @@
       </td>
     </tr>
     <tr>
-    	<td>
+      <td>
         {{ form.powerupped.label }}
       </td>
       <td>
@@ -78,8 +90,10 @@
         </ul>
       </td>
     </tr>
+
+    <tr>
       <td colspan="3">
-        <input type="submit" value="Add a new pokemon"/>
+        <input type="submit" value="Add a new pokemon" />
       </td>
     </tr>
 </form>
