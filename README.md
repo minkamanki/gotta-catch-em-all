@@ -23,5 +23,5 @@ Tässä suunnitelmia miten lähden kehittämään nyt alkuviikoilla sovellusta:<
 
 ![luokkakaavio](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/AlkuviikkojenLuokkakaavio.png)
 
-![tietokantakaavio](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/Alkuviikkojentietokantakaavio.png)
+![tietokantakaavio](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/Loppuviikkojentietokantakaavio.png)
 
