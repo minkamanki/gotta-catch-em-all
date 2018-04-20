@@ -10,7 +10,7 @@ class pokemon(Base):
     dust = db.Column(db.Integer, nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
-    pokedata_id = db.Column(db.Integer, db.ForeignKey('pokedata.id'), nullable=False)
+    pokedata_id = db.Column(db.Integer, db.ForeignKey('pokedata.id'), nullable=True)
 
     def __init__(self, name):
         self.name = name

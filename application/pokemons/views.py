@@ -51,6 +51,7 @@ def pokemons_pokemon(pokemon_id):
     return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm(), current_user=current_user)
 
 @app.route("/pokemons/<pokemon_id>/edit/", methods=["POST"])
+@login_required
 def pokemons_edit(pokemon_id):
     form = PokemonForm(request.form)
 
@@ -58,6 +59,10 @@ def pokemons_edit(pokemon_id):
         return render_template("pokemons/pokemon.html", form = form)
 
     t = pokemon.query.get(pokemon_id)
+    if t.account_id != current_user.id:
+        # tee jotain, esim. 
+        return login_manager.unauthorized()
+
     t.name = form.name.data
     t.powerupped = form.powerupped.data
     t.cp = form.cp.data
