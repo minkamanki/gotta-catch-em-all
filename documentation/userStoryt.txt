@@ -1,12 +1,13 @@
 Nykyiset:
-PokemonWikissä kävijä voi lisätä itselleen pokemoneita.
-Pokemoneille voi merkitä tietoja iv laskuja varten.
-Oman pokemonin voi poistaa ja sen tietoja voi muokata.
-
-Tietokantaan voi lisätä pokemonin (tulevaisuudessa vain admin lisää uusia), joilla on yleistä infoa pokemoneista
+PokemonWikissä kävijä voi lisätä itselleen pokemoneita, tiettyyn pokemon lajiin.
+Käyttäjä merkitsee pokemonille pokemonkohtaisia tietoja.
+Oman pokemonin voi poistaa ja sen tietoja voi muokata
+Tietokantaan voi lisätä pokemon lajin (tulevaisuudessa vain admin lisää uusia), joilla on yleistä infoa pokemoneista.
 
 
 Tulevat:
-Vain admin voi lisätä uusia pokemoneja joista käyttäjä luo omia ilmentymiään.
-Käyttäjien pokemonit kuuluu aina johonki adminin lisäämään pokemoniin, mutta niillä on omat henkilökohtaiset tiedot.
-Iv:n laskeminen pokemon ilmentymille
+Vain admin voi lisätä uusia pokemon lajeja, joista käyttäjä luo omia ilmentymiään.
+Pokemoneilla oleva tyyppi tulee omasta tietokantataulusta.
+Listaus kaikille tietokantaan söytetyille pokemon lajeille.
+Näytetään jokaiselle pokemon lajin ilmentymälle oma sivu.
+Listaus kenelle on paras mistäkin pokemonista.
