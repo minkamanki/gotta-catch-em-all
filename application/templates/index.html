@@ -1,7 +1,37 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block body %}
+<p>
+  <h1>Welcome!</h1>
 
-{% block body %}
-  <p>
-    Welcome!
-  </p>
-{% endblock %}
+  <font size="3">
+      <a href="{{ url_for('pokedata_list') }}">List pokemon species</a>
+      List types (comin soon)
+  </font>
+
+</p>
+{% if current_user.is_authenticated %}
+<h2>{{ current_user.username }}</h2>
+<p>Your level: {{ current_user.lvl }}</p>
+
+<p>Admin's buttons:</p>
+<div>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <li>
+        <a href="{{ url_for('pokedata_form') }}">Add new pokemon species</a>
+      </li>
+    </li>
+    <li class="nav-item">
+      <li>
+        <a href="{{ url_for('pokedata_typeform') }}">Add new pokemon types</a>
+      </li>
+    </li>
+    <li class="nav-item">
+      <li>
+        <a href="{{ url_for('pokedata_pokemontypeform') }}">Add types to pokemons</a>
+      </li>
+    </li>
+  </ul>
+</div>
+
+
+{% endif %} {% endblock %}

@@ -76,6 +76,7 @@ def pokemons_edit(pokemon_id):
 
 @app.route("/pokemons/<pokemon_id>/delete/", methods=["POST"])
 def pokemons_delete(pokemon_id):
-    db.session.delete(pokemon.query.get(pokemon_id))
+    t = pokemon.query.get(pokemon_id)
+    db.session().delete(t)
     db.session().commit()
     return redirect(url_for("pokemons_index"))

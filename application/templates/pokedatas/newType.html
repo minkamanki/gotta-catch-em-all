@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('pokedata_addType') }}">
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+      <td>
+          <ul>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.strongAgainst.label }}
+      </td>
+      <td>
+        {{ form.strongAgainst }}
+      </td>
+      <td>
+          <ul>
+            {% for error in form.strongAgainst.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+    </tr>
+    <tr>
+    	<td>
+        {{ form.weakAgainst.label }}
+      </td>
+      <td>
+        {{ form.weakAgainst }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.weakAgainst.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+    	<td>
+        {{ form.other.label }}
+      </td> 
+      <td>
+        {{ form.other(cols="35", rows="3") }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.other.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input type="submit" value="Add a new type"/>
+      </td>
+    </tr>
+</form>
+{% endblock %}

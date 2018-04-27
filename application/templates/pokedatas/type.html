@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>Type:</th>
+        <td>{{ type.name }}</td>
+    </tr>
+
+    <tr>
+        <th>Strong against:</th>
+        <td>{{ type.strongAgainst }}</td>
+    </tr>
+    <tr>
+        <th>Weak against:</th>
+        <td>{{ type.weakAgainst }}</td>
+    </tr>
+    
+    <tr>
+        <th>Other:</th>
+        <td>{{ type.other }}</td>   
+    </tr>
+</table>
+
+{% endblock %}

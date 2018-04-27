@@ -1,0 +1,23 @@
+{% extends "layout.html" %} 
+{% block body %} 
+{% if pokedatas %}
+<table>
+    <tr>
+        <th>Pokemon</th>
+    </tr>
+    {% for pokedata in pokedatas %} 
+    {% if pokedata.id %}
+    <tr>
+        <td><a href="{{ url_for('pokedata_pokemon', pokedata_id=pokedata.id) }}"> {{ pokedata.name }}</a> </td>
+    </tr>
+    {% endif %} 
+    {% endfor %}
+</table>
+{% else %}
+<p>
+    There is no any pokemons!
+    <a href="{{ url_for('pokedata_add')}}"> Add more pokemons here.</a>
+
+</p>
+{% endif %} 
+{% endblock %} 

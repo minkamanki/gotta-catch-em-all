@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>Pokemon</th>
+        <td>{{ pokemon.name }}</td>
+    </tr>
+
+    <tr>
+        <th>Number</th>
+        <td>{{ pokemon.number }}</td>
+    </tr>
+    <tr>
+        <th>Info</th>
+        <td>{{ pokemon.info }}</td>
+    </tr>
+    
+    <tr>
+        <th>Types</th>
+        <td>{{ pokemon.types }}</td>   
+    </tr>
+</table>
+
+{% endblock %}

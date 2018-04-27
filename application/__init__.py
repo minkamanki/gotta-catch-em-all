@@ -16,7 +16,7 @@ db = SQLAlchemy(app)
 # login
 app.config["SECRET_KEY"] = "secret"
 
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 login_manager = LoginManager()
 login_manager.setup_app(app)
 
