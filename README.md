@@ -1,8 +1,6 @@
 # gotta-catch-em-all
 
-! Jostain syystä herokussa ei aina toimi deletointi ja lisääminen, localhostissa toimii !
-
-Uusien pokemon lajien lisäys onnistuu sivulla: [Lisää uusi pokemon](https://pogowiki.herokuapp.com/pokedatas/new/) 
+! Jostain syystä herokussa ei aina toimi editointi, localhostissa toimii !
 
 Järjestelmän tarkoituksena on tarjota käyttäjälle kattava lista olemassa olevista pokémoneista, niiden ominaisuuksista. Ylläpitäjän ominaisuudessa pystyy syöttämään näitä tietoja kantaan.
 
