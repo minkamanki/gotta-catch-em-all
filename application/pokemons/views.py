@@ -15,7 +15,9 @@ def pokemons_index():
 @app.route("/pokemons/new/")
 @login_required
 def pokemons_form():
-    return render_template("pokemons/new.html", form = PokemonForm())
+    form = PokemonForm()
+    form.pokedata_id.choices = [(g.id, g.name) for g in pokedata.query.order_by('name')]
+    return render_template("pokemons/new.html", form = form)
 
 @app.route("/pokemons/<pokemon_id>/", methods=["POST"])
 def pokemons_set_powerupped(pokemon_id):
