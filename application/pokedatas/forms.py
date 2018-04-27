@@ -22,8 +22,8 @@ class NewTypeForm(FlaskForm):
         csrf = False
 
 class AddTypeToPokemonForm(FlaskForm):    
-    pokedata_id = SelectField(u'pokedata', choices=[(g.id, g.name) for g in pokedata.query.order_by('name')], coerce=int)
-    type_id = SelectField(u'type', choices=[(g.id, g.name) for g in Type.query.order_by('name')], coerce=int)
+    #pokedata_id = SelectField(u'pokedata', choices=[(g.id, g.name) for g in pokedata.query.order_by('name')], coerce=int)
+    #type_id = SelectField(u'type', choices=[(g.id, g.name) for g in Type.query.order_by('name')], coerce=int)
 
     class Meta:
         csrf = False
