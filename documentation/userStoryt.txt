@@ -3,11 +3,16 @@ PokemonWikissä kävijä voi lisätä itselleen pokemoneita, tiettyyn pokemon la
 Käyttäjä merkitsee pokemonille pokemonkohtaisia tietoja.
 Oman pokemonin voi poistaa ja sen tietoja voi muokata
 Tietokantaan voi lisätä pokemon lajin (tulevaisuudessa vain admin lisää uusia), joilla on yleistä infoa pokemoneista.
-
+Pokemoneilla oleva tyyppi tulee omasta tietokantataulusta.
+Pokemoniin voi liittää useita tyyppejä.
+Listaus kaikille tietokantaan söytetyille pokemon lajeille.
+Näytetään jokaiselle pokemon lajin ilmentymälle oma sivu.
 
 Tulevat:
 Vain admin voi lisätä uusia pokemon lajeja, joista käyttäjä luo omia ilmentymiään.
-Pokemoneilla oleva tyyppi tulee omasta tietokantataulusta.
-Listaus kaikille tietokantaan söytetyille pokemon lajeille.
-Näytetään jokaiselle pokemon lajin ilmentymälle oma sivu.
-Listaus kenelle on paras mistäkin pokemonista.
+Tyyppit listattuna.
+Jokaiselle tyypille oma sivu, josta voi luka tyypistä jotain infoja (osittain tehty).
+Erilaisia listauksia kuten:
+      - 10 parasta cp kaikista
+      - 5 paras cp johonkin tiettyyn pokemon lajiin
+Näytä mitä pokemoneita käyttäjällä ei vielä ole.
