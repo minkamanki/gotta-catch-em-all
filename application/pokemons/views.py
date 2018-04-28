@@ -51,7 +51,8 @@ def pokemons_create():
 @app.route("/pokemons/<pokemon_id>/", methods=["GET"])
 @login_required
 def pokemons_pokemon(pokemon_id):
-    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm(), current_user=current_user)
+    p = pokemon.query.get(pokemon_id)
+    return render_template("pokemons/pokemon.html", pokemon = p, form= PokemonForm(), current_user=current_user, pokemondata = pokedata.query.get(p.pokedata_id))
 
 @app.route("/pokemons/<pokemon_id>/edit/", methods=["POST"])
 @login_required
@@ -59,7 +60,7 @@ def pokemons_edit(pokemon_id):
     form = PokemonForm(request.form)
 
     if not form.validate():
-        return render_template("pokemons/pokemon.html", form = form)
+        return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form = form)
 
     t = pokemon.query.get(pokemon_id)
     if t.account_id != current_user.id:
