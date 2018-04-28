@@ -31,7 +31,7 @@ def pokemons_set_powerupped(pokemon_id):
 @app.route("/pokemons/", methods=["POST"])
 def pokemons_create():
     form = PokemonForm(request.form)
-    
+    form.pokedata_id.choices = [(g.id, g.name) for g in pokedata.query.order_by('name')]    
     if not form.validate():
         return render_template("pokemons/new.html", form = form)
 

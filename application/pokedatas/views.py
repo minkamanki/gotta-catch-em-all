@@ -67,7 +67,9 @@ def pokedata_pokemontypeform():
 @login_required(role="ADMIN")
 def pokedata_addPokemonType():
     form = AddTypeToPokemonForm(request.form)
-
+    form.type_id.choices = [(a.id, a.name) for a in Type.query.order_by('name')]
+    form.pokedata_id.choices = [(g.id, g.name) for g in pokedata.query.order_by('name')]
+    
     if not form.validate():
         return render_template("pokedatas/addTypeToPokemon.html", form = form)
 
