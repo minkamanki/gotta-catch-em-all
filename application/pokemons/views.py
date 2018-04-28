@@ -62,9 +62,10 @@ def pokemons_pokemon(pokemon_id):
 @login_required
 def pokemons_edit(pokemon_id):
     form = PokemonForm(request.form)
-
+    p = pokemon.query.get(pokemon_id)
+    
     if not form.validate():
-        return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form = form)
+        return render_template("pokemons/pokemon.html", pokemon = p, form = form, pokemondata = pokedata.query.get(p.pokedata_id))
 
     t = pokemon.query.get(pokemon_id)
     if t.account_id != current_user.id:
@@ -79,7 +80,7 @@ def pokemons_edit(pokemon_id):
 
     db.session().commit()
   
-    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm())
+    return render_template("pokemons/pokemon.html", pokemon = pokemon.query.get(pokemon_id), form= PokemonForm(), pokemondata = pokedata.query.get(pokemon.query.get(pokemon_id).pokedata_id))
 
 @app.route("/pokemons/<pokemon_id>/delete/", methods=["POST"])
 def pokemons_delete(pokemon_id):
