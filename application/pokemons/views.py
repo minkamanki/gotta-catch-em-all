@@ -52,7 +52,11 @@ def pokemons_create():
 @login_required
 def pokemons_pokemon(pokemon_id):
     p = pokemon.query.get(pokemon_id)
-    return render_template("pokemons/pokemon.html", pokemon = p, form= PokemonForm(), current_user=current_user, pokemondata = pokedata.query.get(p.pokedata_id))
+    form= PokemonForm()
+    form.pokedata_id.default = p.pokedata_id
+    form.process()
+    
+    return render_template("pokemons/pokemon.html", pokemon = p, form= form, current_user=current_user, pokemondata = pokedata.query.get(p.pokedata_id))
 
 @app.route("/pokemons/<pokemon_id>/edit/", methods=["POST"])
 @login_required
