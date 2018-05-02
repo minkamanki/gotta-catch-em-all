@@ -16,13 +16,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-
+        
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <li>
               <a href="{{ url_for('pokedata_list') }}">Pokemon species</a>
           </li>
         </li>
+        <li class="nav-item">
+            <li>
+                <a href="{{ url_for('pokedata_list_types') }}">Pokemon types</a>
+            </li>
+          </li>
         {% if current_user.is_authenticated %}
         <li class="nav-item">
           <li>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %} 
+{% block body %} 
+{% if types %}
+<table>
+    <tr>
+        <th>Type</th>
+    </tr>
+    {% for type in types %} 
+    {% if type.id %}
+    <tr>
+        <td><a href="{{ url_for('pokedata_type', type_id=type.id) }}"> {{ type.name }}</a> </td>
+    </tr>
+    {% endif %} 
+    {% endfor %}
+</table>
+{% else %}
+<p>
+    There is no any types!
+    <a href="{{ url_for('pokedata_typeform')}}"> Add types here.</a>
+
+</p>
+{% endif %} 
+{% endblock %} 

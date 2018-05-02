@@ -19,7 +19,7 @@ class pokemon(Base):
 
     @staticmethod
     def find_pokemons_best():
-        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username FROM pokedata"
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username, pokedata.name FROM pokedata"
                      " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
                      " INNER JOIN account ON pokemon.account_id = account.id"
                      " ORDER BY pokemon.cp DESC"
@@ -29,6 +29,6 @@ class pokemon(Base):
 
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4], "player":row[5]})
+            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4], "player":row[5], "species":row[6]})
 
         return response

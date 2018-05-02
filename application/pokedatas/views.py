@@ -88,3 +88,11 @@ def pokedata_list():
 @app.route("/pokedatas/<pokedata_id>/", methods=["GET"])
 def pokedata_pokemon(pokedata_id):
     return render_template("pokedatas/pokemon.html", pokemon = pokedata.query.get(pokedata_id), bestpokemons = pokedata.find_pokemons_best_for_species(pokedata_id))
+
+@app.route("/types", methods=["GET"])
+def pokedata_list_types():
+    return render_template("pokedatas/listTypes.html", types = Type.query.all())
+
+@app.route("/types/<type_id>/", methods=["GET"])
+def pokedata_type(type_id):
+    return render_template("pokedatas/type.html", type = Type.query.get(type_id))
