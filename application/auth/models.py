@@ -36,13 +36,14 @@ class User(Base):
 
     @staticmethod
     def find_pokemons_for_user(accountId):
-        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped FROM account"
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, pokedata.name FROM account"
                      " LEFT JOIN pokemon ON pokemon.account_id = account.id"
+                     " LEFT JOIN pokedata ON pokemon.pokedata_id = pokedata.id"
                      " WHERE (account.id = :accountId)").params(accountId=accountId)
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4]})
+            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4], "species":row[5]})
 
         return response

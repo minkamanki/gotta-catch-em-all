@@ -87,5 +87,4 @@ def pokedata_list():
 
 @app.route("/pokedatas/<pokedata_id>/", methods=["GET"])
 def pokedata_pokemon(pokedata_id):
-    return render_template("pokedatas/pokemon.html", pokemon = pokedata.query.get(pokedata_id))
-
+    return render_template("pokedatas/pokemon.html", pokemon = pokedata.query.get(pokedata_id), bestpokemons = pokedata.find_pokemons_best_for_species(pokedata_id))

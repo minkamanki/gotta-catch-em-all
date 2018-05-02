@@ -5,6 +5,7 @@
   <table>
     <tr>
       <th>Pokemon</th>
+      <th>Name</th>
       <th>CP</th>
       <th>HP</th>
       <th>Powerupped</th>
@@ -12,7 +13,8 @@
     </tr>
     {% for pokemon in pokemons %}
     {% if pokemon.id %}
-    <tr>    
+    <tr>  
+      <td>{{ pokemon.species }}</td>  
       <td><a href="{{ url_for('pokemons_pokemon', pokemon_id=pokemon.id) }}"> {{ pokemon.name }}</a> </td>
       <td>{{ pokemon.cp }}</td>
       <td>{{ pokemon.hp }}</td>

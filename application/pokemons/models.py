@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from sqlalchemy.sql import text
 
 class pokemon(Base):
     
@@ -15,3 +16,18 @@ class pokemon(Base):
     def __init__(self, name):
         self.name = name
         self.powerupped = False
+
+    @staticmethod
+    def find_pokemons_best():
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username FROM pokedata"
+                     " LEFT JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " LEFT JOIN account ON pokemon.account_id = account.id"
+                     " ORDER BY pokemon.cp DESC"
+                     " LIMIT 10")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4], "player":row[5]})
+
+        return response

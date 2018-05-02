@@ -22,5 +22,37 @@
         <td>{{ pokemon.types }}</td>   
     </tr>
 </table>
+<br>
+<br>
+<h2>Top 5:</h2>
+{% if bestpokemons %}
+  <table>
+    <tr>
+      <th>Pokemon</th>
+      <th>CP</th>
+      <th>HP</th>
+      <th>Powerupped</th>
+      <th>Player</th>
+      <th></th>
+    </tr>
+    {% for pokemon in bestpokemons %}
+    {% if pokemon.id %}
+    <tr>    
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.cp }}</td>
+      <td>{{ pokemon.hp }}</td>
+      {% if pokemon.powerupped == 1 %}
+      <td>Yes</td>
+      {% else %}
+      <td>No</td>
+      {% endif %}
+      <td>{{ pokemon.player }}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+{% else %}
+  <p>There isn't any these pokemons yet!</p>
+{% endif %}
 
 {% endblock %}

@@ -1,17 +1,45 @@
 {% extends "layout.html" %} {% block body %}
 <p>
   <h1>Welcome!</h1>
-
-  <font size="3">
-      <a href="{{ url_for('pokedata_list') }}">List pokemon species</a>
-      List types (comin soon)
-  </font>
-
 </p>
 {% if current_user.is_authenticated %}
 <h2>{{ current_user.username }}</h2>
 <p>Your level: {{ current_user.lvl }}</p>
+{% endif %} 
 
+<h2>Top 10 pokemonit:</h2>
+{% if bestpokemons %}
+  <table>
+    <tr>
+      <th>Pokemon</th>
+      <th>CP</th>
+      <th>HP</th>
+      <th>Powerupped</th>
+      <th>Player</th>
+      <th></th>
+    </tr>
+    {% for pokemon in bestpokemons %}
+    {% if pokemon.id %}
+    <tr>    
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.cp }}</td>
+      <td>{{ pokemon.hp }}</td>
+      {% if pokemon.powerupped == 1 %}
+      <td>Yes</td>
+      {% else %}
+      <td>No</td>
+      {% endif %}
+      <td>{{ pokemon.player }}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+{% else %}
+  <p>There isn't any these pokemons yet!</p>
+{% endif %}
+<br>
+<br>
+{% if current_user.is_authenticated %}
 <p>Admin's buttons:</p>
 <div>
   <ul class="navbar-nav mr-auto">
@@ -32,6 +60,5 @@
     </li>
   </ul>
 </div>
-
 
 {% endif %} {% endblock %}
