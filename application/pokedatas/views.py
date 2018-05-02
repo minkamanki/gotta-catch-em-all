@@ -2,6 +2,7 @@ from application import app, db, login_required
 from flask import redirect, render_template, request, url_for
 from application.pokedatas.models import pokedata, Type
 from application.pokedatas.forms import NewPokemonForm, NewTypeForm, AddTypeToPokemonForm
+from flask_login import current_user
 
 
 @app.route("/pokedatas/new/")
@@ -95,4 +96,7 @@ def pokedata_list_types():
 
 @app.route("/types/<type_id>/", methods=["GET"])
 def pokedata_type(type_id):
+    if current_user.id:
+        return render_template("pokedatas/type.html", type = Type.query.get(type_id), pokemons = Type.find_users_pokemons_for_type(type_id, current_user.id))
+    
     return render_template("pokedatas/type.html", type = Type.query.get(type_id))

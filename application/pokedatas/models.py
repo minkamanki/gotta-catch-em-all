@@ -51,5 +51,21 @@ class Type(Base):
     def __repr__(self):
         return self.name
 
+    @staticmethod
+    def find_users_pokemons_for_type(typeId, accountId):
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, pokedata.name FROM type"
+                     " INNER JOIN pokemontype ON type.id = pokemontype.type_id"
+                     " INNER JOIN pokedata ON pokemontype.pokedata_id = pokedata.id"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"                     
+                     " WHERE (type.id = :typeId)"
+                     " AND (account.id = :accountId)"
+                     " ORDER BY pokemon.cp DESC").params(typeId=typeId, accountId=accountId)
+        res = db.engine.execute(stmt)
 
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "cp":row[2], "hp":row[3], "powerupped":row[4], "species":row[5]})
+
+        return response
     

@@ -22,5 +22,36 @@
         <td>{{ type.other }}</td>   
     </tr>
 </table>
+<br>
+<br>
+{% if pokemons %}
+  <table>
+    <tr>
+      <th>Pokemon</th>
+      <th>Name</th>
+      <th>CP</th>
+      <th>HP</th>
+      <th>Powerupped</th>
+      <th></th>
+    </tr>
+{% for pokemon in pokemons %}
+    {% if pokemon.id %}
+    <tr>  
+      <td>{{ pokemon.species }}</td>  
+      <td><a href="{{ url_for('pokemons_pokemon', pokemon_id=pokemon.id) }}"> {{ pokemon.name }}</a> </td>
+      <td>{{ pokemon.cp }}</td>
+      <td>{{ pokemon.hp }}</td>
+      {% if pokemon.powerupped == 1 %}
+      <td>Yes</td>
+      {% else %}
+      <td>No</td>
+      {% endif %}
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </table>
+{% else %}
+  <p>You don't have any pokemons!</p>
+{% endif %}
 
 {% endblock %}
