@@ -20,10 +20,11 @@ class pokemon(Base):
     @staticmethod
     def find_pokemons_best():
         stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username FROM pokedata"
-                     " LEFT JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
-                     " LEFT JOIN account ON pokemon.account_id = account.id"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"
                      " ORDER BY pokemon.cp DESC"
                      " LIMIT 10")
+        
         res = db.engine.execute(stmt)
 
         response = []

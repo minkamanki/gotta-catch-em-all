@@ -23,8 +23,8 @@ class pokedata(Base):
     @staticmethod
     def find_pokemons_best_for_species(pokedataId):
         stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username FROM pokedata"
-                     " LEFT JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
-                     " LEFT JOIN account ON pokemon.account_id = account.id"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"
                      " WHERE (pokedata.id = :pokedataId)"
                      " ORDER BY pokemon.cp DESC"
                      " LIMIT 5").params(pokedataId=pokedataId)

@@ -37,8 +37,8 @@ class User(Base):
     @staticmethod
     def find_pokemons_for_user(accountId):
         stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, pokedata.name FROM account"
-                     " LEFT JOIN pokemon ON pokemon.account_id = account.id"
-                     " LEFT JOIN pokedata ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN pokemon ON pokemon.account_id = account.id"
+                     " INNER JOIN pokedata ON pokemon.pokedata_id = pokedata.id"
                      " WHERE (account.id = :accountId)").params(accountId=accountId)
         res = db.engine.execute(stmt)
 
