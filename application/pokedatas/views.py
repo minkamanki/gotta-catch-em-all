@@ -96,7 +96,7 @@ def pokedata_list_types():
 
 @app.route("/types/<type_id>/", methods=["GET"])
 def pokedata_type(type_id):
-    if current_user.id:
+    if current_user.is_authenticated:
         return render_template("pokedatas/type.html", type = Type.query.get(type_id), pokemons = Type.find_users_pokemons_for_type(type_id, current_user.id))
     
     return render_template("pokedatas/type.html", type = Type.query.get(type_id))
