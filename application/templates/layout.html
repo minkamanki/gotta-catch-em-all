@@ -9,45 +9,36 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(17, 207, 207);">
     <a class="navbar-brand" href="/">PokemonGo Wiki</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <li>
-              <a href="{{ url_for('pokedata_list') }}">Pokemon species</a>
-          </li>
+        <li class="nav-item">        
+              <a href="{{ url_for('pokedata_list') }}" style="color:#2E4053;">Pokemon species</a>        
         </li>
         <li class="nav-item">
-            <li>
-                <a href="{{ url_for('pokedata_list_types') }}">Pokemon types</a>
-            </li>
+                <a href="{{ url_for('pokedata_list_types') }}" style="color:#F7F9F9;">Pokemon types</a>
           </li>
         {% if current_user.is_authenticated %}
         <li class="nav-item">
-          <li>
-            <a href="{{ url_for('pokemons_index') }}">Your pokemons</a>
-          </li>
+            <a href="{{ url_for('pokemons_index') }}" style="color:#2E4053;">Your pokemons</a>
         </li>
         <li class="nav-item">
-          <li>
-            <a href="{{ url_for('pokemons_form') }}">Add new pokemon</a>
-          </li>
+            <a href="{{ url_for('pokemons_form') }}" style="color:#F7F9F9;">Add new pokemon</a>
         </li>
         {% endif %}
       </ul>
 
       <div class="form-inline mt-2 mt-md-0">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('auth_logout') }}">Log out, {{ current_user.name }}</a>
+        <a href="{{ url_for('auth_logout') }}" style="color:#2E4053;">Log out, {{ current_user.name }}</a>
         {% else %}
-        <a href="{{ url_for('auth_login') }}"> Login</a>
-        <a href="{{ url_for('users_form') }}"> Sign in </a>
+        <a href="{{ url_for('auth_login') }}" style="color:#2E4053;"> Login</a>
+        <a href="{{ url_for('users_form') }}" style="color:#F7F9F9;"> Sign in </a>
         {% endif %}
       </div>
     </div>
