@@ -14,6 +14,5 @@ class NewUserForm(FlaskForm):
     password = PasswordField("Password", [validators.Length(min=3)])
     lvl = IntegerField("Player level", [validators.NumberRange(min=1, max=40, message="Invalid level!")])
 
-
     class Meta:
         csrf = False        

@@ -7,10 +7,10 @@ class User(Base):
     __tablename__ = "account"
     
     name = db.Column(db.String(144), nullable=False)
-    username = db.Column(db.String(144), nullable=False)
+    username = db.Column(db.String(144), nullable=False, unique = True)
     password = db.Column(db.String(144), nullable=False)
     lvl = db.Column(db.Integer, nullable=False)
-
+    admin = db.Column(db.Boolean, nullable=False)
     pokemons = db.relationship("pokemon", backref='account', lazy=True)
   
 
@@ -18,6 +18,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
+        self.admin = True
   
     def get_id(self):
         return self.id
@@ -31,8 +32,13 @@ class User(Base):
     def is_authenticated(self):
         return True
 
+    def is_admin(self):
+        return self.admin
+
     def roles(self):
-        return ["ADMIN"]
+        if self.admin:
+            return ["ADMIN"]
+        return ["ANY"]
 
     @staticmethod
     def find_pokemons_for_user(accountId):

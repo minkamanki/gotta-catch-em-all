@@ -34,7 +34,9 @@ def users_form():
 @app.route("/auth/", methods=["POST"])
 def users_create():
     form = NewUserForm(request.form)
-
+    query = User.query.filter(User.username==form.username.data)
+    if query.first():
+        return render_template("auth/newuser.html", form = form, message = "Username has already taken!")
     if not form.validate():
         return render_template("auth/newuser.html", form = form)
 
