@@ -1,4 +1,4 @@
-Nykyiset:
+﻿Nykyiset:
 PokemonWikissä kävijä voi lisätä itselleen pokemoneita, tiettyyn pokemon lajiin.
 Käyttäjä merkitsee pokemonille pokemonkohtaisia tietoja.
 Oman pokemonin voi poistaa ja sen tietoja voi muokata
@@ -7,12 +7,13 @@ Pokemoneilla oleva tyyppi tulee omasta tietokantataulusta.
 Pokemoniin voi liittää useita tyyppejä.
 Listaus kaikille tietokantaan söytetyille pokemon lajeille.
 Näytetään jokaiselle pokemon lajin ilmentymälle oma sivu.
-
-Tulevat:
 Vain admin voi lisätä uusia pokemon lajeja, joista käyttäjä luo omia ilmentymiään.
 Tyyppit listattuna.
 Jokaiselle tyypille oma sivu, josta voi luka tyypistä jotain infoja (osittain tehty).
 Erilaisia listauksia kuten:
       - 10 parasta cp kaikista
       - 5 paras cp johonkin tiettyyn pokemon lajiin
+
+
+Mahdollista jatkokehitystä
 Näytä mitä pokemoneita käyttäjällä ei vielä ole.
