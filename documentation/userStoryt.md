@@ -7,6 +7,8 @@ PokemonWikissä kävijä voi lisätä itselleen pokemoneita, tiettyyn pokemon la
 
 Käyttäjä merkitsee pokemonille pokemonkohtaisia tietoja.
 
+Näkee listattuna omat pokemoninsa.
+
 Oman pokemonin voi poistaa ja sen tietoja voi muokata
 
 Voi nähdä kaikki tietokantaan syötetyt pokemon lajit, ja lukea niistä tietoja pokemonlaji sivulla.
