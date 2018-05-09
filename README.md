@@ -9,13 +9,11 @@ Lisäksi kuka tahansa muukin tietokannan internetistä löytänyt pystyy rekiste
 [Käyttötapaukset](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/userStoryt.txt "Käyttötapaukset")
 
 ### Pokemonin ominaisuudet:
-
-Cp - Combat points - Ympyröity oranssilla
-
-Hp - Health points - Ympyröity vihreällä 
-
-Dust / Stardust - Stardustia voidaan käyttää Pokemon Go:ssa oman pokemonin power uppaamiseen. Stardustia saa pokemoneita nappaamalla, hatchaamalla, raideja suorittamalla sekä gymeillä olevia pokemoneita ruokkimalla.
-Pogowikissa kenttään "Stardust" tulee syöttää kyseisen pokemonin power uppaamiseen tarvittava stardustin määrä. - Ympyröity sinisellä
+|Nimi koodissa/ sovelluksessa|Selitys|Kuvassa|
+|-|-|-|
+|Cp | Combat points | Ympyröity oranssilla|
+|Hp | Health points | Ympyröity vihreällä |
+|Dust / Stardust | Stardustia voidaan käyttää Pokemon Go:ssa oman pokemonin power uppaamiseen. Stardustia saa pokemoneita nappaamalla, hatchaamalla, raideja suorittamalla sekä gymeillä olevia pokemoneita ruokkimalla. Pogowikissa kenttään "Stardust" tulee syöttää kyseisen pokemonin power uppaamiseen tarvittava stardustin määrä. | Ympyröity sinisellä|
 
 <img src="https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/esimerkkipokemon.png" width="300">
 
