@@ -26,6 +26,11 @@ Pokemonlajiin voi liittää tyyppejä.
 
 
 ## Mahdollista jatkokehitystä
+
+### Käyttäjä
 Näytä mitä pokemoneita käyttäjällä ei vielä ole.
 
 Omien tietojen muokkaus
+
+### Admin
+Mahdollisuus tehdä muista käyttäjistä admineita.
