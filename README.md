@@ -24,3 +24,64 @@ Lisäksi kuka tahansa muukin tietokannan internetistä löytänyt pystyy rekiste
 
 ![tietokantakaavio](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/Loppuviikkojentietokantakaavio.png)
 
+Tietokantataulujen Create tablet:
+```sqlite3
+CREATE TABLE account (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	username VARCHAR(144) NOT NULL, 
+	password VARCHAR(144) NOT NULL, 
+	lvl INTEGER NOT NULL, 
+	admin BOOLEAN NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (username), 
+	CHECK (admin IN (0, 1))
+);
+
+CREATE TABLE pokedata (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	number INTEGER NOT NULL, 
+	info VARCHAR(1000) NOT NULL, 
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE pokemon (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	powerupped BOOLEAN NOT NULL, 
+	cp INTEGER NOT NULL, 
+	hp INTEGER NOT NULL, 
+	dust INTEGER NOT NULL, 
+	account_id INTEGER NOT NULL, 
+	pokedata_id INTEGER, 
+	PRIMARY KEY (id), 
+	CHECK (powerupped IN (0, 1)), 
+	FOREIGN KEY(account_id) REFERENCES account (id), 
+	FOREIGN KEY(pokedata_id) REFERENCES pokedata (id)
+);
+
+CREATE TABLE pokemontype (
+	type_id INTEGER, 
+	pokedata_id INTEGER, 
+	FOREIGN KEY(type_id) REFERENCES type (id), 
+	FOREIGN KEY(pokedata_id) REFERENCES pokedata (id)
+);
+
+CREATE TABLE type (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(10) NOT NULL, 
+	"strongAgainst" VARCHAR(40) NOT NULL, 
+	"weakAgainst" VARCHAR(40) NOT NULL, 
+	other VARCHAR(1000) NOT NULL, 
+	PRIMARY KEY (id)
+);
+```
