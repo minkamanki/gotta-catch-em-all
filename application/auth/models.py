@@ -18,7 +18,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
-        self.admin = True
+        self.admin = False
   
     def get_id(self):
         return self.id
