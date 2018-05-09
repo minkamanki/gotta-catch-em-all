@@ -30,10 +30,7 @@ class User(Base):
         return False
 
     def is_authenticated(self):
-        return True
-
-    def is_admin(self):
-        return self.admin
+        return True  
 
     def roles(self):
         if self.admin:

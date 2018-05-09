@@ -15,9 +15,11 @@
 </table>
 {% else %}
 <p>
-    There is no any pokemons!
+    There aren't any pokemons!
+    <br>
+    {% if current_user.admin %}
     <a href="{{ url_for('pokedata_form')}}"> Add more pokemons here.</a>
-
+    {% endif %}
 </p>
 {% endif %} 
 {% endblock %} 

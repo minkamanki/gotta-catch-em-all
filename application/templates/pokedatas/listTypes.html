@@ -15,9 +15,11 @@
 </table>
 {% else %}
 <p>
-    There is no any types!
+    There aren't any types!
+    <br>
+    {% if current_user.admin %}
     <a href="{{ url_for('pokedata_typeform')}}"> Add types here.</a>
-
+    {% endif %}
 </p>
 {% endif %} 
 {% endblock %} 

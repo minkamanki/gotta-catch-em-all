@@ -40,8 +40,8 @@
   <p>There isn't any these pokemons yet!</p>
 {% endif %}
 <br>
-<br>
-{% if current_user.is_authenticated %}
+<br> 
+{% if current_user.admin %}
 <p>Admin's buttons:</p>
 <div>
   <ul class="navbar-nav mr-auto">
