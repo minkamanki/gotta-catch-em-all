@@ -6,7 +6,9 @@ Järjestelmän tarkoituksena on tarjota käyttäjälle kattava lista olemassa ol
 
 Lisäksi kuka tahansa muukin tietokannan internetistä löytänyt pystyy rekisteröitymään ja kirjautumaan järjestelmään, jolloin hän pääsee pitämään kirjaa omista pokemoneistaan ja näiden ominaisuuksista.
 
-[Käyttötapaukset](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/userStoryt.txt "Käyttötapaukset")
+[Käyttötapaukset](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/userStoryt.md "Käyttötapaukset")
+
+[Ohjeet](https://github.com/minkamanki/gotta-catch-em-all/blob/master/documentation/Ohjeet.md "Ohjeet")
 
 ### Pokemonin ominaisuudet:
 |Nimi koodissa/ sovelluksessa|Selitys|Kuvassa|
