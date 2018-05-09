@@ -85,3 +85,41 @@ CREATE TABLE type (
 	PRIMARY KEY (id)
 );
 ```
+Muutama monimutkaisempi yhteenvetokysely koodista:
+```python 
+    def find_pokemons_for_user(accountId):
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, pokedata.name FROM account"
+                     " INNER JOIN pokemon ON pokemon.account_id = account.id"
+                     " INNER JOIN pokedata ON pokemon.pokedata_id = pokedata.id"
+                     " WHERE (account.id = :accountId)").params(accountId=accountId)
+		     ......
+		     
+    def find_pokemons_best_for_species(pokedataId):
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username FROM pokedata"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"
+                     " WHERE (pokedata.id = :pokedataId)"
+                     " ORDER BY pokemon.cp DESC"
+                     " LIMIT 5").params(pokedataId=pokedataId)
+		     ......
+		    
+    def find_pokemons_best():
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, account.username, pokedata.name FROM pokedata"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"
+                     " ORDER BY pokemon.cp DESC"
+                     " LIMIT 10")	
+		     ......
+		     
+    def find_users_pokemons_for_type(typeId, accountId):
+        stmt = text("SELECT pokemon.id, pokemon.name, pokemon.cp, pokemon.hp, pokemon.powerupped, pokedata.name FROM type"
+                     " INNER JOIN pokemontype ON type.id = pokemontype.type_id"
+                     " INNER JOIN pokedata ON pokemontype.pokedata_id = pokedata.id"
+                     " INNER JOIN pokemon ON pokemon.pokedata_id = pokedata.id"
+                     " INNER JOIN account ON pokemon.account_id = account.id"                     
+                     " WHERE (type.id = :typeId)"
+                     " AND (account.id = :accountId)"
+                     " ORDER BY pokemon.cp DESC").params(typeId=typeId, accountId=accountId)
+        	     ......	     
+		    
+```
