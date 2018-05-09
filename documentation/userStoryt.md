@@ -1,6 +1,8 @@
 ## Nykyiset:
 
 ### Käyttäjä
+Voi luoda itselleen käyttäjätunnukset.
+
 PokemonWikissä kävijä voi lisätä itselleen pokemoneita, tiettyyn pokemon lajiin.
 
 Käyttäjä merkitsee pokemonille pokemonkohtaisia tietoja.
